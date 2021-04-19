@@ -1,0 +1,31 @@
+from textblob import TextBlob
+
+word10 = TextBlob('hello')
+z = word10.translate(from_lang='en', to ='hi')
+print (z)
+0
+
+word5 = TextBlob(u'?????')
+e=word5.translate(from_lang='hi', to ='en')
+print(e)
+
+word4 = TextBlob('hello')
+f=word4.translate(from_lang='en', to ='es')
+print(f)
+
+word3 = TextBlob('hello')
+g=word3.translate(from_lang='en', to ='ta')
+print(g)
+
+word2 = TextBlob('hello')
+h=word2.translate(from_lang='en', to ='zh-CN')
+print(h)
+
+word1 = TextBlob('hello')
+i=word1.translate(from_lang='en', to ='ja')
+print(i)
+
+word = TextBlob('hello')
+j=word.translate(from_lang='en', to ='fr')
+print(j)
+TextBlob.mainloop()
