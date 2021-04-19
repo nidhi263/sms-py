@@ -1,0 +1,255 @@
+from tkinter import *
+
+import pymysql as sql
+from tkinter import messagebox
+
+
+top = Tk()
+top.geometry("3500x750")
+top.title("STUDENT MANAGEMENT SYSTEM")
+
+#==============================================frame=================================================#
+
+MainFrame = Frame(top, bg="cadet blue")
+MainFrame.grid()
+
+TitFrame = Frame(MainFrame, bd=2,  padx=54,pady=8, bg="cadet blue",relief=RIDGE)
+TitFrame.pack(side=TOP)
+
+lblTit = Label(TitFrame, font=('arial', 47,'bold'),text="STUDENT MANAGEMENT SYSTEM",bg="Ghost White")
+lblTit.grid()
+
+ButtonFrame =Frame(MainFrame,bd=2, width=1350, height=70, padx=18, pady=10, bg="blue", relief=RIDGE)
+ButtonFrame.pack(side=BOTTOM)
+
+DataFrame =Frame(MainFrame, bd=1, width=1300, height=400, padx=20, pady=20, relief=RIDGE, bg="blue")
+DataFrame.pack(side=BOTTOM)
+
+DataFrameLEFT =LabelFrame(DataFrame, bd=1, width=1000, height=600, padx=20, relief=RIDGE, bg="Ghost White",
+                     font=('arial', 20,'bold'), text="Student Info\n")
+DataFrameLEFT.pack(side=LEFT)
+DataFrameRIGHT =LabelFrame(DataFrame, bd=1, width=450, height=300, padx=31, pady=3, relief=RIDGE, bg="Ghost White",
+                          font=('arial', 20,'bold'), text="Student Details\n")
+DataFrameRIGHT.pack(side=RIGHT)
+
+L1 = Label(top, text = "Name",fg="red")
+L2 = Label(top, text = "Lastname",fg="red")
+L3 = Label(top, text = "Rollno.",fg="red")
+L4 = Label(top, text = "Coures",fg="red")
+L5 = Label(top, text = "Age",fg="red")
+L6 = Label(top, text = "Address",fg="red")
+L7 = Label(top, text = "DateOfBirth",fg="red")
+
+def insert():
+    s1 = a.get()
+    s2 = b.get()
+    s3 = (int)(c.get())
+    s4 =(int) (d.get())
+    s5 = (int)(h.get())
+    s6 = f.get()
+    s7 = g.get()
+    # Open database connection
+    db = sql.connect("localhost", "root", "nidhi", "student")
+
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+
+    print("your Name is", s1);
+    print("your Last name is", s2);
+    print("your Rollno. is", s3);
+    print("your Coures is", s4);
+    print("your Age is", s5);
+    print("your Address is", s6);
+    print("your DateOfBirth is", s7);
+    # Prepare SQL query to INSERT a record into the database.
+    x = "INSERT INTO  stndt(NAME, LASTNAME, ROLLNO,Class, AGE, ADDRESS, DATEOFBIRTH)VALUES ('%s','%s','%s','%s','%s','%s','%s')" % (
+    s1, s2, s3, s4, s5, s6, s7)
+
+    try:
+        # Execute the SQL command
+        cursor.execute(x)
+
+        # Commit your changes in the database
+        db.commit()
+    except Exception as e:
+        print(e)
+        # Rollback in case there is any error
+        db.rollback()
+        db.close()
+
+
+
+
+def Delete():
+    s1 = a.get()
+    db = sql.connect("localhost", "root", "nidhi", "student")
+    cursor = db.cursor()
+    print("your name is",s1);
+        # Prepare SQL query to INSERT a record into the database.
+    x = "delete from stndt where name=%s"
+
+    try:
+            # Execute the SQL command
+        cursor.execute(x, s1)
+
+            # Commit your changes in the database
+        db.commit()
+    except Exception as e:
+        print(e)
+            # Rollback in case there is any error
+        db.rollback()
+
+def Update():
+    s1 = a.get()
+    s2 = b.get()
+    db = sql.connect("localhost", "root", "nidhi", "student")
+    cursor = db.cursor()
+    print("your name is", s1);
+    print("your lastname is", s2);
+    x = "update stndt SET name= %s where lastname=%s "
+    k=s1,s2
+    try:
+        # Execute the SQL command
+        cursor.execute(x, k)
+
+        # Commit your changes in the database
+        db.commit()
+    except Exception as e:
+        print(e)
+        # Rollback in case there is any error
+        db.rollback()
+        db.close()
+
+def Search():
+    s3 = c.get()
+    db = sql.connect("localhost", "root", "nidhi", "student")
+    cursor = db.cursor()
+    print("your rollno is", s3);
+    x = "select * from stndt where rollno=%s"
+
+    try:
+            # Execute the SQL command
+        cursor.execute(x, s3)
+
+            # Commit your changes in the database
+        db.commit()
+    except Exception as e:
+        print(e)
+            # Rollback in case there is any error
+        db.rollback()
+        db.close()
+
+
+
+
+def st():
+    # Open database connection
+    db = sql.connect("localhost", "root", "nidhi", "student")
+
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+    x = "select * from stndt"
+    cursor = db.cursor()
+    for row in results:
+        name = row[0]
+        lastname = row[1]
+        rollno = row[2]
+        coures = row[3]
+        age = row[4]
+        address = row[5]
+        dateofbirth = row[6]
+
+        lbl1 = Label(top, text="Name:-{0}".format(row[0]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=0, column=0, sticky=W)
+        lbl1 = Label(top, text="Lastname:-{0}".format(row[1]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=1, column=0, sticky=W)
+        lbl1 = Label(top, text="rollno:-{0}".format(row[2]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=2, column=0, sticky=W)
+        lbl1 = Label(top, text="course:-{0}".format(row[3]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=3, column=0, sticky=W)
+        lbl1 = Label(top, text="age:-{0}".format(row[4]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=4, column=0, sticky=W)
+        lbl1 = Label(top, text="address:-{0}".format(row[5]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=5, column=0, sticky=W)
+        lbl1 = Label(top, text="dateofbirth:-{0}".format(row[6]), font=('Helvetica', '20'), bg="black", fg="white",
+                     borderwidth=12)
+        lbl1.grid(row=6, column=0, sticky=W)
+
+    try:
+        # Execute the SQL command
+        cursor.execute(x)
+
+        # Commit your changes in the database
+        db.commit()
+    except Exception as e:
+        print(e)
+        # Rollback in case there is any error
+        db.rollback()
+        db.close()
+
+a=StringVar();
+b=StringVar();
+c=StringVar();
+d=StringVar();
+h=StringVar();
+f=StringVar();
+g=StringVar();
+
+L1.place(x=50,y=200)
+L2.place(x=50,y=250)
+L3.place(x=50,y=300)
+L4.place(x=50,y=350)
+L5.place(x=50,y=400)
+L6.place(x=50,y=450)
+L7.place(x=50,y=500)
+#==================================================functions====================================================#
+def Addnew():
+    top.add()
+
+btn = Button (top, text="Add New", bg="yellow", fg="black", command = insert, bd = 4)
+btn.place(x = 150,y = 600)
+
+btn = Button (top, text="Update", bg="yellow", fg="black", command = Update, bd = 4)
+btn.place(x = 250,y = 600)
+
+
+btn = Button (top, text="Delete", bg="yellow", fg="black", command = Delete, bd = 4)
+btn.place(x = 350,y = 600)
+
+
+btn = Button (top, text="search", bg="yellow", fg="black", command = Search, bd = 4)
+btn.place(x = 450,y = 600)
+
+
+
+
+def Exit():
+    top.destroy()
+
+btn = Button (top, text="exit", bg="yellow", fg="black", command = Exit , bd = 4)
+btn.place(x = 550,y = 600)
+
+E1=Entry(top, bd = 2,textvariable=a)
+E2=Entry(top, bd = 2,textvariable=b)
+E3=Entry(top, bd = 2,textvariable=c)
+E4=Entry(top, bd = 2,textvariable=d)
+E5=Entry(top, bd = 2,textvariable=h)
+E6=Entry(top, bd = 2,textvariable=f)
+E7=Entry(top, bd = 2,textvariable=g)
+
+E1.place(x = 250,y = 200)
+E2.place(x = 250,y = 250)
+E3.place(x = 250,y = 300)
+E4.place(x = 250,y = 350)
+E5.place(x = 250,y = 400)
+E6.place(x = 250,y = 450)
+E7.place(x = 250,y = 500)
+
+top.mainloop()
