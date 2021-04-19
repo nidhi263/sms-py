@@ -1,0 +1,336 @@
+-------------------------------HTML-----------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>SEMINR HALL BOOKING WEBSITE</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-image:url(../11.jpg);
+			background-position: center;
+			background-size: cover;
+			font-family: sans-serif;
+			margin-top: 40px; 
+		}
+		.bform{
+			width: 800px;
+			background-color: rgb(0,0,0,0.8);
+			margin: auto;
+			color: #ffffff;
+			padding: 10px 0px 10px 0px;
+			text-align: center;
+			border-radius: 15px 15px 0px 0px;
+		}
+		.main{
+			background-color: rgb(0,0,0,0.5);
+			width: 800px;
+			margin: auto;
+		}
+		form{
+			padding: 10px;
+		}
+		#name{
+			width: 100%;
+			height: 100px;
+		}
+		.name{
+			margin-left: 25px;
+			margin-top: 30px;
+			width: 125px;
+			color: white;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.firstname{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px; 
+		}
+		.lastname{
+			position: relative;
+			left: 417px;
+			top: -80px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+		}
+		.firstlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 203px;
+			top: -45px;
+		}
+		.lastlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 175px;
+			top: -45px;
+		}
+		.Phone{
+			margin-left: 25px;
+			margin-top: 30px;
+			width: 125px;
+			color: white;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.code{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			width: 95px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px; 
+		}
+		.pnumber{
+			position: relative;
+			left: 417px;
+			top: -80px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+		}
+		.firstlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 203px;
+			top: -45px;
+		}
+		.lastlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 175px;
+			top: -45px;
+		}
+		.emailid{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			width: 532px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+		}
+		.date{
+			margin-left: 25px;
+			margin-top: 30px;
+			width: 125px;
+			color: white;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.fromdate{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px; 
+		}
+		.todate{
+			position: relative;
+			left: 417px;
+			top: -80px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+		}
+		.firstlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 203px;
+			top: -45px;
+		}
+		.lastlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 175px;
+			top: -45px;
+		}
+		.time{
+			margin-left: 25px;
+			margin-top: 30px;
+			width: 125px;
+			color: white;
+			font-size: 18px;
+			font-weight: 700;
+		}
+		.intime{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px; 
+		}
+		.outtime{
+			position: relative;
+			left: 417px;
+			top: -80px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+		}
+		.firstlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 203px;
+			top: -45px;
+		}
+		.lastlable{
+			position: relative;
+			color: #E5E5E5;
+			text-transform: capitalize;
+			font-size: 14px;
+			left: 175px;
+			top: -45px;
+		}
+		.nguest{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+		}
+		.option{
+			position: relative;
+			left: 200px;
+			top: -37px;
+			line-height:40px;
+			width: 532px;
+			height: 40px;
+			border-radius: 6px;
+			padding: 0 22px;
+			font-size: 16px;
+			color: #555;
+			outline: none;
+			overflow: hidden;
+		}
+		.option option{
+			font-size: 20px;
+		}
+		.cancel{
+			background-color: #001a4d;
+			display: block;
+			
+			text-align: center;
+			border-radius: 12px;
+			border:3px solid  #000000;
+			padding: 14px 70px;
+			outline: none;
+			color: white;
+			cursor: pointer;
+			transition: 0.25px;
+		}
+		button{
+			background-color: #001a4d;
+			display: inline-block;
+		    text-align: center;
+			border-radius: 12px;
+			border:3px solid  #000000;
+			padding: 17px 70px;
+			outline: none;
+			color: white;
+			cursor: pointer;
+			transition: 0.25px;
+			margin-right: 25px;
+		}
+
+		
+	</style>
+
+</head>
+<body>
+	<div class="bform">
+		<h1>Booking Form</h1>
+	</div>
+	<div class="main">
+		<form>
+			<div id="name">
+				<h2 class="name">Name</h2>
+				<input class="firstname" type="text" name="first_name"><br>
+				<label class="firstlable">First Name</label>
+				<input class="lastname" type="text" name="last_name">
+				<label class="lastlable">Last Name</label>
+			</div>
+			<div>
+			    <h2 class="name">Phone</h2>
+			    <input class="code" type="text" name="area_code"><br>
+			    <label class="firstlable">Area Code</label>
+			    <input class="pnumber" type="text" name="phone">
+			    <label class="lastlable">Phone Number</label>
+		    </div>
+			<h2 class="name">Email ID</h2>
+			<input class="emailid" type="text" name="email_id">
+			<div id="name">
+				<h2 class="name">Date</h2>
+				<input class="fromdate" type="text" name="from_date"><br>
+				<label class="firstlable">From Date</label>
+				<input class="todate" type="text" name="to_date">
+				<label class="lastlable">To Date</label>
+			</div>
+			<div id="name">
+				<h2 class="name">Time</h2>
+				<input class="intime" type="text" name="in_time"><br>
+				<label class="firstlable">In Time</label>
+				<input class="outtime" type="text" name="out_time">
+				<label class="lastlable">Out Time</label>
+			</div>
+			<h2 class="name">No. of Guest</h2>
+			<input class="nguest" type="text" name="no._of_guest">
+			<h2 class="name">Room Type</h2>
+			<select class="option" name="room_type">
+				<option disabled="disabled" selected="selected">--Choose Option</option>
+				<option>AC Room</option>
+				<option>Non-AC Room</option>
+			</select>
+			<div>
+				<button type="cancel">CANCEL</button>
+                <button type="submit">SUBMIT</button>
+                <button type="Reset">RESET</button>
+            </div>	
+		</form>
+	</div>
+
+</body>
+</html>
+
